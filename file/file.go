@@ -6,6 +6,14 @@ import (
 	"os"
 )
 
+// CheckAndCreateDir - Si occupa di controllare se esiste una cartella, se non fosse la crea
+func CheckAndCreateDir(path string) {
+
+	if _, err := os.Stat(path); os.IsNotExist(err) {
+		os.Mkdir(path, os.ModePerm)
+	}
+}
+
 // GetFileFromURL - Si occupa di scaricare un file e spostarlo nella destinazione scelta
 func GetFileFromURL(url string, dest string) {
 

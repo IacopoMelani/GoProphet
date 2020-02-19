@@ -1,7 +1,6 @@
 package item
 
 import (
-	"os"
 	"sync"
 
 	"github.com/IacopoMelani/GoProphet/file"
@@ -13,7 +12,7 @@ type TableRecord struct {
 }
 
 const (
-	modelsPath = "./models"
+	modelsPath = "/models"
 	tablePath  = modelsPath + "/table"
 
 	urlTableRecordUsersFile  = "https://raw.githubusercontent.com/IacopoMelani/Go-Starter-Project/master/models/table/users.go"
@@ -28,19 +27,12 @@ var (
 	onceTableRecord sync.Once
 )
 
-func checkAndCreateDir(path string) {
-
-	if _, err := os.Stat(path); os.IsNotExist(err) {
-		os.Mkdir(path, os.ModePerm)
-	}
-}
-
 func initTableRecordDir() {
 
-	checkAndCreateDir(modelsPath)
-	checkAndCreateDir(tablePath)
-	file.GetFileFromURL(urlTableRecordUsersFile, tableRecordUsersFilename)
-	file.GetFileFromURL(urlTableRecordUsersTestFile, tableRecordUsersTestFilename)
+	file.CheckAndCreateDir(getAppName() + modelsPath)
+	file.CheckAndCreateDir(getAppName() + tablePath)
+	file.GetFileFromURL(urlTableRecordUsersFile, getAppName()+tableRecordUsersFilename)
+	file.GetFileFromURL(urlTableRecordUsersTestFile, getAppName()+tableRecordUsersTestFilename)
 }
 
 // GetTableRecord - Restituisce l'unica istanza del modulo di table record

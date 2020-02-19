@@ -1,6 +1,7 @@
 package item
 
 import (
+	"fmt"
 	"os"
 	"sync"
 )
@@ -24,6 +25,7 @@ func GetExit() *Exit {
 // Action - Definisce l'azione per il modulo
 func (e Exit) Action() func() {
 	return func() {
+		fmt.Println("It's time to GO!")
 		os.Exit(0)
 	}
 }
