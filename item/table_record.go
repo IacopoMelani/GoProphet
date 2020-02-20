@@ -29,10 +29,10 @@ var (
 
 func initTableRecordDir() {
 
-	file.CheckAndCreateDir(getAppName() + modelsPath)
-	file.CheckAndCreateDir(getAppName() + tablePath)
-	file.GetFileFromURL(urlTableRecordUsersFile, getAppName()+tableRecordUsersFilename)
-	file.GetFileFromURL(urlTableRecordUsersTestFile, getAppName()+tableRecordUsersTestFilename)
+	file.CheckAndCreateDir(GetPathAppName() + modelsPath)
+	file.CheckAndCreateDir(GetPathAppName() + tablePath)
+	file.GetFileFromURL(urlTableRecordUsersFile, GetPathAppName()+tableRecordUsersFilename)
+	file.GetFileFromURL(urlTableRecordUsersTestFile, GetPathAppName()+tableRecordUsersTestFilename)
 }
 
 // GetTableRecord - Restituisce l'unica istanza del modulo di table record

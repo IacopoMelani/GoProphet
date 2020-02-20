@@ -5,8 +5,9 @@ import (
 	"github.com/IacopoMelani/GoProphet/root"
 )
 
-func getAppName() string {
-	return "./" + root.GetAppName()
+// GetPathAppName - Restituisce il path completo della root del progetto
+func GetPathAppName() string {
+	return root.GetPathAppName()
 }
 
 // ItitModules - Inizializza tutti i moduli
