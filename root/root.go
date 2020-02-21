@@ -3,7 +3,7 @@ package root
 import (
 	"fmt"
 	"os"
-	"strings"
+	"path/filepath"
 
 	"github.com/IacopoMelani/GoProphet/file"
 )
@@ -25,7 +25,14 @@ func GetPathAppName() string {
 		panic("Missing app name")
 	}
 
-	return strings.Replace(os.Getenv("GOPATH"), "\\", "/", 0) + "/src/" + "github.com/" + username + "/" + appName
+	rootPath = "github.com/" + username + "/" + appName
+
+	return filepath.ToSlash(os.Getenv("GOPATH") + "/src/" + "github.com/" + username + "/" + appName)
+}
+
+// GetRootGoPath - Restituisce il percorso relativo del GOPATH per lo specifico progetto
+func GetRootGoPath() string {
+	return rootPath
 }
 
 // InitRootDir si occupa di inizializzare la root principale

@@ -13,5 +13,6 @@ func GetPathAppName() string {
 // ItitModules - Inizializza tutti i moduli
 func ItitModules() {
 	menu.RegisterItem(GetTableRecord())
+	menu.RegisterItem(GetController())
 	menu.RegisterItem(GetExit())
 }
